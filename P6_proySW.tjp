@@ -234,12 +234,12 @@ task cloud "Cloud deployment" {
   task tFEc "Cloud Tool choice" {
     effort 15d
     allocate dev2, dev3
-    depends WMGame.tbackDev.tCloD
+    depends WMGame.tbackDev
   }
   task tFEt "Cloud evaluation" {
     effort 6d
     allocate dev1
-    depends WMGame.tbackDev.tCloD
+    depends WMGame.tbackDev
   }    
 }
 
