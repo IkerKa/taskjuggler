@@ -252,19 +252,19 @@ task cloud "Cloud deployment" {
     }
 
     journalentry 2023-05-12 "Updated Cloud development" {
-      author dev1
-      alert yellow
+      author dev5
+      alert green
       summary "The cloud development has been updated to include the new features requested by the client."
     }
   }
   task tFEc "Cloud Tool choice" {
     effort 15d
-    allocate dev2, dev3
+    allocate dev2, dev5
     depends WMGame.twebF.tGUId
   }
   task tFEt "Cloud evaluation" {
     effort 6d
-    allocate dev1
+    allocate dev5
     depends WMGame.twebF.tFEc
   }    
 }
