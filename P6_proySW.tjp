@@ -91,8 +91,6 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.deliveries.start
   }
 
-  
-
   task tback "Back End" {
     # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
     purge chargeset
@@ -120,20 +118,6 @@ task WMGame "Web & Mobile Game" {
       allocate dev1, dev2
       depends WMGame.tback.tlogic
     }
-  }
-
-  # Cloud deployment
-  task tcloud "Cloud Deployment" {
-    effort 2d
-    allocate boss
-    depends WMGame.tback.tbackDev
-  }
-
-  # Frontend Mobile
-  task tMF "Mobile frontend" {
-    effort 5d
-    allocate dev1
-    depends WMGame.tgdesign
   }
 
   task twebF "Web Front End" {
@@ -203,6 +187,60 @@ task WMGame "Web & Mobile Game" {
       charge 12000.0 onstart
     }
   }
+} 
+
+# MOBILE FRONTEN PRINCIPAL Task
+task MFront "Mobile Front End" {
+  chargeset wFront
+  responsible dev3
+  depends WMGame.tback.tBEd
+  task tGUId "Mobile GUI Design" {
+    effort 9d
+    actual:effort 15d
+    allocate dev3
+    journalentry 2023-04-11 "Problems with the GUI design tool" {
+      author dev3
+      alert yellow
+      summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
+    }
+  }
+  task tFEc "Mobile Front End Construction" {
+    effort 15d
+    allocate dev2, dev3
+    depends WMGame.twebF.tGUId
+  }
+  task tFEt "Mobile Front End Test" {
+    effort 6d
+    allocate dev1
+    depends WMGame.twebF.tFEc
+  }    
+}
+
+# Cloud deployment Task
+task cloud "Cloud deployment" {
+  chargeset wFront
+  responsible dev3
+  depends WMGame.tback.tBEd
+  task tGUId "Cloud GUI Design" {
+    effort 9d
+    actual:effort 15d
+    allocate dev3
+    journalentry 2023-04-11 "Problems with the GUI design tool" {
+      author dev3
+      alert yellow
+      summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
+    }
+  }
+  task tFEc "Cloud Front End Construction" {
+    effort 15d
+    allocate dev2, dev3
+    depends WMGame.twebF.tGUId
+  }
+  task tFEt "Cloud Front End Test" {
+    effort 6d
+    allocate dev1
+    depends WMGame.twebF.tFEc
+  }    
 }
 
 # Now the project has been specified completely. Stopping here would
