@@ -221,7 +221,7 @@ task cloud "Cloud deployment" {
   chargeset wFront
   responsible dev3
   depends WMGame.tback.tBEd
-  task tGUId "Cloud GUI Design" {
+  task tCloD "Cloud decision and development" {
     effort 9d
     actual:effort 15d
     allocate dev3
@@ -231,15 +231,15 @@ task cloud "Cloud deployment" {
       summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
     }
   }
-  task tFEc "Cloud Front End Construction" {
+  task tFEc "Cloud Tool choice" {
     effort 15d
     allocate dev2, dev3
-    depends WMGame.twebF.tGUId
+    depends WMGame.tback.tCloD
   }
-  task tFEt "Cloud Front End Test" {
+  task tFEt "Cloud evaluation" {
     effort 6d
     allocate dev1
-    depends WMGame.twebF.tFEc
+    depends WMGame.tback.tCloD
   }    
 }
 
