@@ -23,12 +23,6 @@ project pSix "Web Game"  2023-03-15 +4.5m {
   # The currency for all money values is the US Dollar.
   currency "EUR "
 
-  journalentry 2023-05-12 "Continuando el proyecto" {
-    summary "The project has been completed on time and within budget."
-    author boss
-    alert green
-  }
-
   # We want to compare the baseline scenario to one with the current one.
   scenario plan "Plan" {
     scenario actual "Actual"
@@ -163,6 +157,13 @@ task WMGame "Web & Mobile Game" {
     alert red
     summary "The whole team assigned to this task has a trip to visit a new client from May 7th to May 12th. Needed to check if the project can be finished on time or it is necessary to reassign efforts."
   }
+
+  journalentry 2023-05-12 "Continuando el proyecto" {
+    author boss
+    alert green
+    summary "Aquí estamos."
+  }
+
   start 2023-06-01
   depends WMGame.twebF
   depends WMGame.tback
