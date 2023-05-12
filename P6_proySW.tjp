@@ -91,6 +91,8 @@ task WMGame "Web & Mobile Game" {
       depends WMGame.deliveries.start
   }
 
+  
+
   task tback "Back End" {
     # It is necessary to “purge” the “chargeset” because it has been assigned previously to other variable 
     purge chargeset
@@ -118,6 +120,20 @@ task WMGame "Web & Mobile Game" {
       allocate dev1, dev2
       depends WMGame.tback.tlogic
     }
+  }
+
+  # Cloud deployment
+  task tcloud "Cloud Deployment" {
+    effort 2d
+    allocate boss
+    depends WMGame.tback.tbackDev
+  }
+
+  # Frontend Mobile
+  task tMF "Mobile frontend" {
+    effort 5d
+    allocate dev1
+    depends WMGame.tgdesign
   }
 
   task twebF "Web Front End" {
