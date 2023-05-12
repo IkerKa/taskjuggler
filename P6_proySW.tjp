@@ -19,24 +19,10 @@ project pSix "Web Game"  2023-03-15 +4.5m {
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2023-05-12 16:00
+  now 2023-05-13 16:00
   # The currency for all money values is the US Dollar.
   currency "EUR "
 
-  task ttest "Acceptance tests" {
-    effort 10d
-    allocate boss
-    allocate dev2
-    actual:effort 15d
-    journalentry 2023-05-12 "Continuando el proyecto" {
-      summary "The project has been completed on time and within budget."
-      author boss
-      alert green
-    }
-    start 2023-06-01
-    depends WMGame.twebF
-    depends WMGame.tback
-  }
 
   # We want to compare the baseline scenario to one with the current one.
   scenario plan "Plan" {
@@ -126,6 +112,12 @@ task WMGame "Web & Mobile Game" {
         author boss
         alert green
         summary "The team has ended the game logic before deadline."
+      }
+
+      journalentry 2023-05-12 "Updated Game logic" {
+        author dev1
+        alert yellow
+        summary "The game logic has been updated to include the new features requested by the client."
       }
     }
     task tbackDev "Back development" {
