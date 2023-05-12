@@ -228,7 +228,7 @@ task cloud "Cloud deployment" {
     journalentry 2023-04-11 "Problems with the GUI design tool" {
       author dev3
       alert yellow
-      summary "The tool used for the GUI design has given me a lot of problems. I recommend to look for other one."
+      summary "The tool used for the cloud development tool has given me a lot of problems. I recommend to look for other one."
     }
   }
   task tFEc "Cloud Tool choice" {
