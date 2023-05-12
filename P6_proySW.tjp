@@ -19,7 +19,7 @@ project pSix "Web Game"  2023-03-15 +4.5m {
   # the project reports. If not specified, the current day will be
   # used, but this will likely be outside of the project range, so it
   # can't be seen in the reports.
-  now 2023-05-13 16:00
+  now 2023-03-15
   # The currency for all money values is the US Dollar.
   currency "EUR "
 
@@ -53,11 +53,18 @@ account rev "Payments"
 # The Profit&Loss analysis should be rev - cost accounts.
 balance cost rev
 
+
+
 resource boss "Liz Bullock" {
   email "iiii@unizar.es"
   actual:leaves project 2023-05-07 - 2023-05-12
   rate 160
 }
+
+resource dev5 "Iker Morán" {
+  email "aaaaa@unizar.es"
+  rate 100
+} 
 resource dev1 "Paul Smith" {
   email "hhhh@unizar.es"
 }
@@ -239,6 +246,12 @@ task cloud "Cloud deployment" {
       author dev3
       alert yellow
       summary "The tool used for the cloud development tool has given me a lot of problems. I recommend to look for other one."
+    }
+
+    journalentry 2023-05-12 "Updated Cloud development" {
+      author dev1
+      alert yellow
+      summary "The cloud development has been updated to include the new features requested by the client."
     }
   }
   task tFEc "Cloud Tool choice" {
